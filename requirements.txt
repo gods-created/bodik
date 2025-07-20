@@ -1,0 +1,14 @@
+nltk
+pandas
+scikit-learn
+boto3
+joblib
+python-dotenv
+loguru
+botocore
+python-multipart
+fastapi
+starlette
+uvicorn
+loguru
+faker
