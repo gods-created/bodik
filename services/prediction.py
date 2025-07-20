@@ -7,7 +7,8 @@ from nltk.tokenize import word_tokenize
 
 class PredictionService:
     def __init__(self):
-        pass 
+        nltk.download('stopwords')
+        nltk.download('punkt') 
 
     def _prepared_text(self, text: str) -> str:
         text = text.lower().translate(str.maketrans('', '', punctuation)) 
@@ -18,9 +19,6 @@ class PredictionService:
         status, message = False, None 
 
         try:
-            nltk.download('stopwords')
-            nltk.download('punkt')
-
             X = vectorizer.transform([self._prepared_text(text)])
             message, *_ = model.predict(X)
             status = not status

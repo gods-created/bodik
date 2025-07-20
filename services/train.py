@@ -15,6 +15,9 @@ class TrainService:
     def __init__(self, tmp_path: str = './assets'):
         self.tmp_path = tmp_path
 
+        nltk.download('stopwords')
+        nltk.download('punkt')
+
     def _prepared_text(self, text: str) -> str:
         text = text.lower().translate(str.maketrans('', '', punctuation))
         tokens = [word for word in word_tokenize(text) if word not in set(stopwords.words('english'))]
@@ -26,9 +29,6 @@ class TrainService:
         try:
             if not file_name.endswith('.csv'):
                 raise InvalidUploadedFile('Invalid uploaded file extension.')
-
-            nltk.download('stopwords')
-            nltk.download('punkt')
 
             content = file_object.read().decode('utf-8')
             raw_strings = StringIO()
