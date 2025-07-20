@@ -8,7 +8,7 @@ from nltk.tokenize import word_tokenize
 class PredictionService:
     def __init__(self):
         nltk.download('stopwords')
-        nltk.download('punkt', download_dir='/home/ec2-user/nltk_data') 
+        nltk.download('punkt_tab') 
 
     def _prepared_text(self, text: str) -> str:
         text = text.lower().translate(str.maketrans('', '', punctuation)) 

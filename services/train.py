@@ -16,7 +16,7 @@ class TrainService:
         self.tmp_path = tmp_path
 
         nltk.download('stopwords')
-        nltk.download('punkt')
+        nltk.download('punkt_tab') 
 
     def _prepared_text(self, text: str) -> str:
         text = text.lower().translate(str.maketrans('', '', punctuation))
